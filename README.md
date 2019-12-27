@@ -51,7 +51,7 @@ $Neural->squareError();
 ## Пример работы.
 
 ### 1. Есть картинка, размером 30х30 пикселей. Преобразуем её в ЧБ-вариант
-https://cdn1.savepice.ru/uploads/2019/12/27/9ee7c437004e2bac93ac8c37eeeb9b51-full.jpg
+![screenshot of sample](https://cdn1.savepice.ru/uploads/2019/12/27/9ee7c437004e2bac93ac8c37eeeb9b51-full.jpg)
 
 ### 2. Преобразуем в линейный массив, где 0 - черный, 1 - белый
 $imgLinear = getLinearArray($IMG);
@@ -91,6 +91,6 @@ $TrainingData = $TrainingArray[$NumberData['number_number']];
     debug("Ошибка выходных нейронов: " . $Neural->squareError());
     
 ### 5. Результат работы на скриншоте:
-https://cdn1.savepice.ru/uploads/2019/12/27/ee3d16845a379169ba3f33afe9851c53-full.png
+![screenshot of sample](https://cdn1.savepice.ru/uploads/2019/12/27/ee3d16845a379169ba3f33afe9851c53-full.png)
 
 После стократной корректировки весов, нейросеть распознает число.
