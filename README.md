@@ -121,6 +121,7 @@ function getLinearArray($img)
 </details>
 
 ### 3. Создадим массив с тренировочными данными, где выходной нейрон должен соответствовать нужному значению:
+```php
 $TrainingArray = array(
     0 =>    array(1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     1 =>    array(0, 1, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -133,24 +134,26 @@ $TrainingArray = array(
     8 =>    array(0, 0, 0, 0, 0, 0, 0, 0, 1, 0),
     9 =>    array(0, 0, 0, 0, 0, 0, 0, 0, 0, 1)
 );
+```
 В данном случае, картинка с числом 1, значит, массив с индексом 1
 
 ### 4. Задаём все выше указанные параметры
+```php
 $TrainingData = $TrainingArray[$NumberData['number_number']];
+$Neural = new Neuralink();
+$Neural->setInputArray($imgLinear);
+$Neural->setHiddenLayersCount(400, 200, 100);
+$Neural->setOutputNeuronsCount(10);
+$Neural->setTrainingArray($TrainingData);
+$Neural->setActivationFunc(ActivationFunction::SIGMOID);
+$Neural->setWeightGeneration(-5,5, 5);
+$Neural->setIQ(0.3);
+$Neural->generateWeights();
+for ($i=0; $i<100; $i++) $Neural->train();
+$Neural->isTrained();
+debug("Ошибка выходных нейронов: " . $Neural->squareError());
+```
 
-    $Neural = new Neuralink();
-    $Neural->setInputArray($imgLinear);
-    $Neural->setHiddenLayersCount(400, 200, 100);
-    $Neural->setOutputNeuronsCount(10);
-    $Neural->setTrainingArray($TrainingData);
-    $Neural->setActivationFunc(ActivationFunction::SIGMOID);
-    $Neural->setWeightGeneration(-5,5, 5);
-    $Neural->setIQ(0.3);
-    $Neural->generateWeights();
-    for ($i=0; $i<100; $i++) $Neural->train();
-    $Neural->isTrained();
-    debug("Ошибка выходных нейронов: " . $Neural->squareError());
-    
 ### 5. Результат работы на скриншоте:
 ![screenshot of sample](https://cdn1.savepice.ru/uploads/2019/12/27/ee3d16845a379169ba3f33afe9851c53-full.png)
 
